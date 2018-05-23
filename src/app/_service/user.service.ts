@@ -15,7 +15,7 @@ export class UserService {
     });
     static REQUEST_OPTIONS: RequestOptions = new RequestOptions({headers: UserService.headers});
 
-    private apiRootUrl  = 'http://superern.bonntech.com.au/';
+    private apiRootUrl  = 'https://superern.bonntech.com.au/';
     private findAllUrl  = this.apiRootUrl + 'bonntech/api/users';
     private findByIdUrl = this.apiRootUrl + 'bonntech/api/users/';
     private createUrl   = this.apiRootUrl + 'bonntech/api/users/create';
