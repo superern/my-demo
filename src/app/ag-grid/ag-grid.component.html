@@ -1,0 +1,33 @@
+<div style="height: 100%; padding-top: 30px; box-sizing: border-box;">
+    <!--Add Contact button-->
+    <app-create-user [editInProgress]="editInProgress" (saveContact)="saveContact($event)"></app-create-user>
+    <app-edit-user [editInProgress]="editInProgress" (updateContact)="updateContact($event)"></app-edit-user>
+    <ag-grid-angular
+            #grid
+            style="width: 100%; height: 500px;  paddding: 2px;"
+            class="ag-theme-material"
+
+            [columnDefs]="columnDefs"
+            [enableSorting]="true"
+            [getRowNodeId]="getRowNodeId"
+            [rowData]="rowData"
+            [rowMultiSelectWithClick]="true"
+            [rowSelection]="rowSelection"
+            [suppressDragLeaveHidesColumns]="true"
+
+            (gridReady)="onGridReady($event)"
+            (rowDoubleClicked)="onRowDoubledClicked($event)"
+
+            suppressHorizontalScroll
+
+                 ></ag-grid-angular>
+    <div>
+        <!-- Disable button when no row selected and edit is in progress -->
+        <button (click)="onRemoveSelected()" [disabled]="!rowsSelected() || editInProgress" class="btn btn-danger">Delete Selected Contact
+        </button>
+    </div>
+
+
+</div>
+<!--suppressClickEdit-->
+<!--(cellValueChanged)="onCellValueChanged($event)"-->
